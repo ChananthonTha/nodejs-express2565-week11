@@ -3,16 +3,18 @@ const app = express()
 const PORT = process.env.PORT || 5000
 const hostname = 'localhost'
 
-//http://localhost:5000/
+//GET: http://localhost:5000/
 app.get('/',(req,res)=>{
-    res.end('<h1>Express App</h1><hr color="red">')
+    // res.send('<h1>Express App</h1><hr color="red" />')
+    res.status(200).send({"message":"Hello"})
 })
 
-//http://localhost:5000/contact
+//GET: http://localhost:5000/contact
 app.get('/contact',(req,res)=>{
-    res.send('<h1>Contact Page</h1><hr color="red">')
+    // res.send('<h1>Contact Page</h1><hr color="red" />')
+    res.status(200).send({"message":"Contact"})
 })
 
-app.listen(5000,()=>{
-    console.log(`Sever running at http://${hostname}:${PORT}`)
+app.listen(PORT, () => {
+    console.log(`Server running at http://${hostname}:${PORT}`)
 })
